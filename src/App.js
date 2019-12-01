@@ -1,14 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 import Header from './components/Header'
 import AboutMe from './components/AboutMe'
+
+import Navbar from "./components/view/Navbar";
+import Landing from "./components/view/Landing";
 
 function App() {
   return (
     <div>
-    < Header />
-    <AboutMe />
+    <Navbar />
+    <Landing />
     </div>
   );
 }

@@ -1,22 +1,38 @@
 const express = require('express');
-const app = express();
 const path = require('path')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 const Author = require('./models/author')
 
-app.listen(3000, function() {
-  console.log('listening on 3000')
-})
+const passport = require("passport");
+const users = require("./routes/api/users");
 
-mongoose.connect('mongodb://root:root123@ds261817.mlab.com:61817/gql-jim');
-mongoose.connection.once('open', () => {
-	console.log('connected to database');
-})
+
+const app = express();
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+const db = require("./config/keys").mongoURI;
+
+mongoose.connect(db, { useNewUrlParser: true })
+.then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
+
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
+
+const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + '/../public/index.html'))
