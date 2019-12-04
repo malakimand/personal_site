@@ -1,5 +1,11 @@
 import { combineReducers } from 'redux'
-import leetcodeStore from './leetcodeReducer';
+
+import leetcodeReducer from './leetcodeReducer';
+import authReducer from "./authReducer";
+import errorReducer from "./errorReducer";
+
 export default combineReducers({
-  leetcodeStore
-})
+  leetcode: leetcodeReducer,
+  auth: authReducer,
+  errors: errorReducer
+});

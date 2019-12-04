@@ -3,6 +3,7 @@
 const initialState = {
   messages: [],
 };
+
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const EDIT_MESSAGE = 'EDIT_MESSAGE';
 

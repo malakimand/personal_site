@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { a } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Landing extends Component {
   render() {
@@ -12,10 +12,12 @@ class Landing extends Component {
               <span style={{ fontFamily: "monospace", color: "silver", boxShadow: "3px 5px #7777", border: '1px solid' }}>and</span> <p className="flow-text grey-text text-darken-1">keep a repository for 
               leetcode questions and answers</p>
             </h4>
-            
+            <p style={{ fontSize: '15px'}} className="flow-text black-text text-darken-1">
+              Website made with MERN stack, uses JWT
+            </p>
             <br />
             <div className="col s6">
-              <a
+              <Link
                 to="/register"
                 style={{
                   width: "140px",
@@ -25,10 +27,10 @@ class Landing extends Component {
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
                 Register
-              </a>
+              </Link>
             </div>
             <div className="col s6">
-              <a
+              <Link
                 to="/login"
                 style={{
                   width: "140px",
@@ -38,7 +40,7 @@ class Landing extends Component {
                 className="btn btn-large btn-flat waves-effect white black-text"
               >
                 Log In
-              </a>
+              </Link>
             </div>
           </div>
         </div>
