@@ -14,6 +14,11 @@ import Login from "./components/authentication/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/view/Dashboard";
 
+import Leetcode from "./components/content/Leetcode";
+import LeetcodeForm from "./components/form/LeetcodeForm";
+import AboutMe from "./components/content/Aboutme";
+import NBAfeed from "./components/content/NBAfeed";
+
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -46,8 +51,12 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/leetcode" component={Leetcode} />
+          <Route exact path="/aboutme" component={AboutMe} />
+          <Route exact path="/nba" component={NBAfeed} />
           <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+              <PrivateRoute exact path="/leetcodeform" component={LeetcodeForm}  />
           </Switch>
         </div>
       </Router>

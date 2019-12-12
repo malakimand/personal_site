@@ -14,10 +14,10 @@ class Navbar extends Component {
     return (
       <div className="navbar-fixed">
         <nav className="z-depth-0">
-          <div className="nav-wrapper white">
+          <div className="nav-wrapper blue-grey lighten-4">
           <div className="left-align">
             <Link
-              to="/"
+              to="/dashboard"
               style={{
                 fontFamily: "monospace"
               }}
@@ -42,7 +42,31 @@ class Navbar extends Component {
             >
               Logout
             </button>
-            ) : ""}
+            ) : ( <div>
+                  <Link
+                to="/register"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-small waves-effect waves-light hoverable blue accent-3"
+              >
+                Register
+              </Link>
+            
+              <Link
+                to="/login"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-small btn-flat waves-effect white black-text"
+              >
+                Log In
+              </Link>
+              </div>)}
           </div>
           </div>
           
