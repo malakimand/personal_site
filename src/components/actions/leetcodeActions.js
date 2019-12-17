@@ -9,7 +9,7 @@ import {
 export const createEntry = (leetData, history) => dispatch => {
   axios
     .post("/api/leetcode/register", leetData)
-    .then(res => history.push("/leetcode")) // goto leetcode
+    .then(res => history.push("/leetcode/1")) // goto leetcode
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

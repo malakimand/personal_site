@@ -15,9 +15,6 @@ class Leetcode extends Component {
   }
 
 
-  clickedOn = (num) => {
-    console.log(num)
-  }
 
    
 
@@ -70,7 +67,7 @@ class Leetcode extends Component {
             {
               [...Array(this.props.leetcode.pages)].map((e,i) => {
                   return <b
-                  onSubmit={clickedOn(i+1)}
+                  onClick={()=> this.props.getAllEntries(i+1)}
                   className="btn btn-small waves-effect z-depth-1" 
                   style={{ pointerEvents: i+1 === this.props.leetcode.page ? 'none' : 'auto'}}>
                     {i+1}
