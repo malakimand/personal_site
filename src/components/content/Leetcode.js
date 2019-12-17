@@ -1,13 +1,31 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { getAllEntries } from "../actions/leetcodeActions";
 
 
 class Leetcode extends Component {
 
+  componentDidMount() {
+    // fetch leetcode entries
+   
+      //console.log("1");
+      this.props.getAllEntries(this.props.match.params.page)
+      
+  }
+
+
+  clickedOn = (num) => {
+    console.log(num)
+  }
+
+   
+
+
 
   render() {
-
+    
+    
     return (
      <div className="container silver">
       <Link to="/dashboard" className="btn-flat waves-effect">
@@ -33,17 +51,47 @@ class Leetcode extends Component {
         <div class="divider"></div>
         <div class="section">
           <h5>View Leetcode Posts</h5>
-          <p>[]</p>
+          {this.props.leetcode.entries.map(entry => 
+            <div>
+              <div className="divider" />
+              <div className="card col s12" style={{padding: '1px', borderRadius: '5px'}}>
+
+                <h5 className="container">Leetcode #{entry.question_id}{": "}<i>{entry.question_title}</i></h5>
+                
+                <p className="container">by {entry.user} {"      "} on {entry.date.substring(0,10)}</p>
+              </div>
+            </div>
+          )}
         </div>
+        <div className="row center-align">
+        Page
+        {
+          <div>
+            {
+              [...Array(this.props.leetcode.pages)].map((e,i) => {
+                  return <b
+                  onSubmit={clickedOn(i+1)}
+                  className="btn btn-small waves-effect z-depth-1" 
+                  style={{ pointerEvents: i+1 === this.props.leetcode.page ? 'none' : 'auto'}}>
+                    {i+1}
+              </b>
+               })
+            } 
+          </div>
+        }
+        </div>
+
      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  leetcode: state.leetcode
 });
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  { getAllEntries }
 )(Leetcode);

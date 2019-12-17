@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-//import { registerUser } from "../actions/authActions";
+import { createEntry } from "../actions/leetcodeActions";
 import classnames from "classnames";
 import Field from "./Field";
 //import Leetcode from "../content/Leetcode";
@@ -46,11 +46,12 @@ onSubmit = e => {
       time_complexity: this.state.time_complexity,
       space_complexity: this.state.space_complexity,
       program_language: this.state.program_language,
-      difficulty: this.state.difficulty
+      difficulty: this.state.difficulty,
+      user: this.props.auth.user.username
     };
     console.log(newLeetcode)
-    console.log(this.props)
-    //this.props.registerUser(newLeetcode, this.props.history); 
+    
+    this.props.createEntry(newLeetcode, this.props.history); 
   };
 
 render() {
@@ -59,7 +60,7 @@ return (
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
-            <Link to="/leetcode" className="btn-flat waves-effect">
+            <Link to="/leetcode/1" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back
             </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -183,5 +184,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  { createEntry }
 )(withRouter(LeetCodeForm));

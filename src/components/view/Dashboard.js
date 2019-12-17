@@ -42,7 +42,7 @@ return (
           <div className = "valign-wrapper">
               <i className="material-icons md-48">code</i> 
               <h4 className = "container "><b>Leetcode</b></h4>
-              <Link to="/leetcode" className="btn waves-effect z-depth-3">
+              <Link to="/leetcode/1" className="btn waves-effect z-depth-3">
                Explore
             </Link>
             </div>

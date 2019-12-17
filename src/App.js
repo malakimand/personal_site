@@ -51,7 +51,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/leetcode" component={Leetcode} />
+          <Route exact path="/leetcode/:page" component={Leetcode} />
           <Route exact path="/aboutme" component={AboutMe} />
           <Route exact path="/nba" component={NBAfeed} />
           <Switch>
