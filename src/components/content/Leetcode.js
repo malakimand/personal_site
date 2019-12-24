@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAllEntries } from "../actions/leetcodeActions";
+import { getAllEntries, deleteEntry } from "../actions/leetcodeActions";
 
 
 class Leetcode extends Component {
 
+  constructor(props){
+    super(props)
+    this.delEntry = this.delEntry.bind(this)
+  }
+
   componentDidMount() {
     // fetch leetcode entries
-   
-      //console.log("1");
       this.props.getAllEntries(this.props.match.params.page)
       
   }
 
-
+ delEntry(id){
+  this.props.deleteEntry(id);
+ }
 
    
 
@@ -36,7 +41,8 @@ class Leetcode extends Component {
             <div className="col s2">
               {}
               <Link to="/leetcodeform" style={{ pointerEvents: this.props.auth.isAuthenticated === true ? "auto" : "none"}}>
-               <input type="submit" disabled={!this.props.auth.isAuthenticated} value="Create"  className="btn btn-small waves-effect waves-light orange accent-3" />
+               <input type="submit" disabled={!this.props.auth.isAuthenticated}  className="btn btn-small waves-effect waves-light orange accent-3"
+                 value="CREATE" style={{fontWeight: "bold"}}/>
               </Link>
              
             </div>
@@ -49,14 +55,45 @@ class Leetcode extends Component {
         <div class="section">
           <h5>View Leetcode Posts</h5>
           {this.props.leetcode.entries.map(entry => 
-            <div>
+            <div className="row">
               <div className="divider" />
-              <div className="card col s12" style={{padding: '1px', borderRadius: '5px'}}>
+              <div className="card col s7" style={{padding: '1px', borderRadius: '5px'}}>
 
                 <h5 className="container">Leetcode #{entry.question_id}{": "}<i>{entry.question_title}</i></h5>
-                
                 <p className="container">by {entry.user} {"      "} on {entry.date.substring(0,10)}</p>
+                {entry.updatedAt !== null ? <p className="container">last updated: {entry.updatedAt.substring(0,10)}</p> : ""}
+               
               </div>
+              <div className="col s1" style={{padding: '1px', margin: "10px"}}>
+               <Link className="btn waves-effect z-depth-1 orange accent-3" 
+               to={{
+                pathname: "/leetcodeEntry",
+                state: {
+                 data: entry
+                }
+              }}
+               ><b className="center align">View</b></Link>
+              </div>
+
+               { this.props.auth.user.username === entry.user ?
+              <div className="col s1" style={{padding: '1px', margin: "10px"}}>
+               <Link className="btn waves-effect z-depth-1 teal accent-3" 
+               to={{
+                pathname: "/editleetcodeform",
+                state: {
+                 data: entry
+                }
+              }}
+               ><b>Edit</b></Link>
+              </div>
+            : ""}
+              { this.props.auth.user.username === entry.user ?
+              <div className="container col s1" style={{padding: '1px', margin: "10px 0px 10px 5px"}}>
+               <button className="btn waves-effect z-depth-1 red accent-3" 
+                onClick={(e) => this.delEntry(entry._id,e)}
+               ><i className="material-icons">delete_forever</i></button>
+              </div>
+            : ""}
             </div>
           )}
         </div>
@@ -90,5 +127,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAllEntries }
+  { getAllEntries, deleteEntry }
 )(Leetcode);

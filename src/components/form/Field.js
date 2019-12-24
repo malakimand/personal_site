@@ -6,7 +6,7 @@ class Field extends Component {
 		return(
 			<div>
 				{this.props.input === "input" ? (
-					<div className="input-field col s3">
+					<div className="input col s3">
                 <input
                   onChange={this.props.onChange}
                   value={this.props.value}
@@ -18,7 +18,7 @@ class Field extends Component {
                 <label htmlFor={this.props.id}>{this.props.id}</label>
                 <span className="red-text">{this.props.error}</span>
              </div> ) : 
-				(<div className="input-field col s12">
+				(<div className="input col s12">
                 <textarea
                   onChange={this.props.onChange}
                   value={this.props.value}

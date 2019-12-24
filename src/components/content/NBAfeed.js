@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getNBASchedule, getNBAStandings } from "../actions/nbaActions";
 
 
 
 class NBAfeed extends Component {
 
- 
+ componentDidMount(){
+ 	this.props.getNBAStandings();
+ 	this.props.getNBASchedule();
+ 	
+ }
 
   render() {
     return (
@@ -22,4 +28,7 @@ class NBAfeed extends Component {
 
 
 
-export default NBAfeed;
+export default connect(
+  null,
+  { getNBASchedule, getNBAStandings }
+)(NBAfeed);

@@ -15,7 +15,10 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/view/Dashboard";
 
 import Leetcode from "./components/content/Leetcode";
+import LeetcodeEntry from "./components/content/LeetcodeEntry";
 import LeetcodeForm from "./components/form/LeetcodeForm";
+import EditLeetcodeForm from "./components/form/EditLeetcodeForm";
+
 import AboutMe from "./components/content/Aboutme";
 import NBAfeed from "./components/content/NBAfeed";
 
@@ -52,11 +55,13 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/leetcode/:page" component={Leetcode} />
+          <Route exact path="/leetcodeEntry" component={LeetcodeEntry} />
           <Route exact path="/aboutme" component={AboutMe} />
           <Route exact path="/nba" component={NBAfeed} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard}/>
               <PrivateRoute exact path="/leetcodeform" component={LeetcodeForm}  />
+              <PrivateRoute exact path="/editleetcodeform" component={EditLeetcodeForm}  />
           </Switch>
         </div>
       </Router>
