@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getNBASchedule, getNBAStandings } from "../actions/nbaActions";
+import {  getNBAData } from "../actions/nbaActions";
 
 
 
 class NBAfeed extends Component {
 
  componentDidMount(){
- 	this.props.getNBAStandings();
- 	this.props.getNBASchedule();
+ 	this.props.getNBAData();
  	
  }
 
   render() {
+    console.log(this.props);
     return (
      <div className="container silver">
      	<Link to="/dashboard" className="btn-flat waves-effect">
@@ -26,9 +26,11 @@ class NBAfeed extends Component {
   }
 }
 
-
+const mapStateToProps = state => ({
+  nba: state.nba
+});
 
 export default connect(
-  null,
-  { getNBASchedule, getNBAStandings }
+  mapStateToProps,
+  { getNBAData }
 )(NBAfeed);
