@@ -34,8 +34,8 @@ class Leetcode extends Component {
             <i className="material-icons left">keyboard_backspace</i> Back
       </Link>
      
-      <div class="divider"></div>
-        <div class="section">
+      <div className="divider"></div>
+        <div className="section">
           <h5>Add Leetcode Post</h5>
           <div className="row">
             <div className="col s2">
@@ -51,11 +51,11 @@ class Leetcode extends Component {
             </div>
           </div>
         </div>
-        <div class="divider"></div>
-        <div class="section">
+        <div className="divider"></div>
+        <div className="section">
           <h5>View Leetcode Posts</h5>
           {this.props.leetcode.entries.map(entry => 
-            <div className="row">
+            <div className="row" key={entry.date}>
               <div className="divider" />
               <div className="card col s7" style={{padding: '1px', borderRadius: '5px'}}>
 
@@ -104,6 +104,7 @@ class Leetcode extends Component {
             {
               [...Array(this.props.leetcode.pages)].map((e,i) => {
                   return <b
+                  key={1 + i}
                   onClick={()=> this.props.getAllEntries(i+1)}
                   className="btn btn-small waves-effect z-depth-1" 
                   style={{ pointerEvents: i+1 === this.props.leetcode.page ? 'none' : 'auto'}}>

@@ -23,7 +23,7 @@ componentDidMount() {
     }
   }
 
-componentWillReceiveProps(nextProps) {
+UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -43,7 +43,6 @@ onSubmit = e => {
       password: this.state.password,
       password2: this.state.password2
     };
-    console.log(newUser)
     this.props.registerUser(newUser, this.props.history); 
   };
 

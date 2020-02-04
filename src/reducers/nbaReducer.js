@@ -3,7 +3,14 @@ import {
 } from "../components/actions/types";
 // Initial state
 const initialState = {
-  standings: [],
+  standings: {
+  	atlantic: [],
+  	central: [],
+  	southeast: [],
+  	northwest: [],
+  	pacific: [],
+  	southwest: []
+  },
   todays_games: [],
   lastUpdatedOn: null
 };
@@ -13,9 +20,16 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_NBA_DATA:
-    console.log(action.payload)
+    
       return Object.assign({}, state, {
-        standings: action.payload[0].standings, 
+        standings: {
+        	atlantic: action.payload[0].standings[0].atlantic,
+  			central: action.payload[0].standings[0].central,
+  			southeast: action.payload[0].standings[0].southeast,
+  			northwest: action.payload[0].standings[0].northwest,
+  			pacific: action.payload[0].standings[0].pacific,
+  			southwest: action.payload[0].standings[0].southwest
+  	}, 
         todays_games: action.payload[0].todays_games, 
         lastUpdatedOn: action.payload[0].lastUpdatedOn
       })

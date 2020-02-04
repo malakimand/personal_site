@@ -3,8 +3,7 @@ import axios from "axios";
 import {
   GET_ERRORS,
   FETCH_LEETCODE_ENTRIES,
-  DELETE_LEETCODE_ENTRY,
-  UPDATE_LEETCODE_ENTRIES
+  DELETE_LEETCODE_ENTRY
 } from "./types";
 
 // Registration

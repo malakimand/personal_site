@@ -32,11 +32,10 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 
 
- 
 
-  cron.schedule("0 30 11 * * *", function() {
+  cron.schedule("0 30 8 * * *", function() {
   	  require("./tasks/NBA").getNBAdata()
-      console.log("running this task every day at 11:30am pst");
+      console.log("running this task every day at 8:30am pst");
      
   });
 
@@ -51,6 +50,7 @@ app.use("/api/leetcode", leetcode);
 app.use("/api/NBA", NBA);
 
 const port = process.env.PORT || 5000; // process.env.port is deployer's port if you choose to deploy the app there
+
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
 

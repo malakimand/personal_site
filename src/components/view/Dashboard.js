@@ -18,7 +18,7 @@ return (
             <h4>
               <b>Hey there,</b> {user.username.split(" ")}
               <p className="flow-text grey-text text-darken-1">
-                Check out some of the content below 
+                Check out some of the content I've created below 
               </p>
             </h4>
           </div>
@@ -35,6 +35,7 @@ return (
                Explore
             </Link>
             </div>
+            <p>Because I'm a huge fan of basketball</p>
           </div>
         </div>
         <div className="col s4">
@@ -46,6 +47,7 @@ return (
                Explore
             </Link>
             </div>
+            <p>Because I enjoy solving coding challenges</p>
          </div>
         </div>
         <div className="col s4">
@@ -53,10 +55,12 @@ return (
             <div className = "valign-wrapper">
               <i className="material-icons md-48">person</i> 
               <h4 className = "container "><b>About Me</b></h4>
+
               <Link to="/aboutme" className="btn waves-effect z-depth-3">
                Explore
             </Link>
             </div>
+            <p>Because I'm proud of the work I've done</p>
           </div>
         </div>
 

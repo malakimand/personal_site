@@ -37,7 +37,30 @@ class Aboutme extends Component {
 							<i style={{fontSize: '90px'}} className="material-icons">devices_other</i>
 						</div>
 						<div className="col s8">
-							<p>Site features ...</p>
+							<div className="col s5">I created this personal website for multiple reasons. To showcase
+							my web development experience, to experiment with new technologies/modules/styles, to have
+							a website that is tailored to me, to incorporate the software development lifecycle into my project, and mainly to 
+							progress and push through a personal project from start to finish and be satisfied with the end result.
+							</div>
+
+							<div className="col s6">Site features:<br/>
+							MongoDB - NoSQL Database <br/>
+							ExpressJS - Server Code/Handling APIs <br/>
+							ReactJS - Client-side Code <br/>
+							ReduxJS - State Management <br/>
+							NodeJS - Server-side Scripting <br/>
+							JSON Web Tokens - Authentication <br/>
+							MaterializeCSS - Styling <br/>
+							GitHub - Version Control <br/>
+							Docker - Bundle Application Code <br/>
+							Many node modules to handle routing, encrypting, fetching data,
+							 validating data, task scheduling and other functional/nonfunctional
+							 components of this web application.
+
+
+
+							</div>
+							
 						</div>
 					</div>
 				</div>

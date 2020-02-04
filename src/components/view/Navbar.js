@@ -12,6 +12,8 @@ class Navbar extends Component {
 
   render() {
     return (
+      <div>
+      
       <div className="navbar-fixed">
         <nav className="z-depth-0">
           <div className="nav-wrapper blue-grey lighten-4">
@@ -24,10 +26,12 @@ class Navbar extends Component {
               className="col s5 brand-logo center black-text"
             >
               <i className="material-icons">home</i>
-              Daniel Malakiman
+              Daniel The Developer
             </Link>
             </div>
+
             <div className="right-align container">
+
             {this.props.auth.isAuthenticated === true ? (
             <button
               style={{
@@ -66,12 +70,16 @@ class Navbar extends Component {
               >
                 Log In
               </Link>
+
               </div>)}
+
           </div>
+
           </div>
           
         </nav>
       </div>
+    </div>
     );
   }
 }
