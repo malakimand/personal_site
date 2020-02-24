@@ -68,7 +68,7 @@ return (
               </h3>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              
+              <div className="hide-on-med-and-down">
                 <Field
                   input="input"
                   onChange={this.onChange}
@@ -170,6 +170,129 @@ return (
                   Confirm
                 </button>
               </div>
+              </div>
+
+
+
+              <div className="hide-on-large-only">
+              <div className="row">
+              <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.question_id}
+                  error={errors.question_id}
+                  id="question_id"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.question_id
+                  })}
+                />
+                </div>
+
+                <div className="row">
+                <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.question_title}
+                  error={errors.question_title}
+                  id="question_title"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.question_title
+                  })}
+                />
+                </div>
+
+                <div className="row">
+                <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.program_language}
+                  error={errors.program_language}
+                  id="program_language"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.program_language
+                  })}
+                />
+                </div>
+
+                <div className="row">
+                <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.difficulty}
+                  error={errors.difficulty}
+                  id="difficulty"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.difficulty
+                  })}
+                />
+                </div>
+
+                <div className="row">
+                <Field
+                  input="textarea"
+                  onChange={this.onChange}
+                  value={this.state.answer_code}
+                  error={errors.answer_code}
+                  id="answer_code"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.answer_code
+                  }, "materialize-textarea")}
+                />
+                </div>
+
+              
+                <div className="row">
+                 <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.time_complexity}
+                  error={errors.time_complexity}
+                  id="time_complexity"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.time_complexity
+                  })}
+                />
+                </div>
+               
+               <div className="row">
+                <Field
+                  input="input"
+                  onChange={this.onChange}
+                  value={this.state.space_complexity}
+                  error={errors.space_complexity}
+                  id="space_complexity"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.space_complexity
+                  })}
+                />
+                </div>
+
+
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem"
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                  Confirm
+                </button>
+              </div>
+
+              </div>
+
+
             </form>
           </div>
         </div>

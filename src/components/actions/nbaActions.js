@@ -20,6 +20,7 @@ export const getNBAData = () =>  dispatch => {
     );
 };
   
+   //.get("http://danielthedeveloper.com:5000/api/NBA/stats")
 
 
 

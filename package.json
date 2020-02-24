@@ -9,6 +9,7 @@
     "classnames": "^2.2.6",
     "concurrently": "^5.0.0",
     "connected-react-router": "^6.6.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
@@ -27,11 +28,11 @@
     "redux-thunk": "^2.3.0",
     "validator": "^12.1.0"
   },
+  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "dev": "concurrently \"npm start\" \"nodemon server/server.js\""
   },
-  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },

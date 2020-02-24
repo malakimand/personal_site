@@ -11,6 +11,7 @@ import {
 // Registration
 export const registerUser = (userData, history) => dispatch => {
   axios
+    //.post("http://danielthedeveloper.com:5000/api/users/register", userData) // prod
     .post("/api/users/register", userData)
     .then(res => history.push("/login")) // goto login
     .catch(err =>
@@ -24,7 +25,8 @@ export const registerUser = (userData, history) => dispatch => {
 // Login / Get Token
 export const loginUser = userData => dispatch => {
   axios
-    .post("/api/users/login", userData)
+    //.post("http://danielthedeveloper.com:5000/api/users/login", userData) // prod
+    .post("/api/users/login", userData) // dev
     .then(res => {
       // Add token to localStorage
       const { token } = res.data;

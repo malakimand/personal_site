@@ -5,6 +5,15 @@ const mongoose = require('mongoose');
 
 const cron = require("node-cron");
 
+var cors = require('cors')
+
+var corsOptions = {
+  origin: 'http://danielthedeveloper.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+
+
 
 const Author = require('./models/author')
 
@@ -17,6 +26,9 @@ const NBA = require("./routes/api/nba");
 
 
 const app = express();
+
+//app.use(cors(corsOptions)) //prod
+//app.use(cors()) //dev
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));

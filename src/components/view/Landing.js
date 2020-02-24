@@ -13,7 +13,7 @@ class Landing extends Component {
               host content related to some of my hobbies</p>
             </h4>
             <p style={{ fontSize: '15px'}} className="flow-text black-text text-darken-1">
-              Website made with MERN stack, uses JWT, and more...
+              Website made with MERN stack, uses JWT, more info about this project in the About Me section.
             </p>
             <br />
             </div>

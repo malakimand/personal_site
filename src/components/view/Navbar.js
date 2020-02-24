@@ -14,29 +14,25 @@ class Navbar extends Component {
     return (
       <div>
       
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
-          <div className="nav-wrapper blue-grey lighten-4">
-          <div className="left-align">
+      <div className="navbar-fixed" >
+        <nav className="z-depth-0" >
+          <div className="nav-wrapper blue-grey lighten-4 row">
+          <div className="container col s4 push-s8">
             <Link
               to="/dashboard"
-              style={{
-                fontFamily: "monospace"
-              }}
-              className="col s5 brand-logo center black-text"
+              className="brand-logo black-text left-align"
             >
               <i className="material-icons">home</i>
-              Daniel The Developer
+              <span className="hide-on-med-and-down">Daniel The Developer</span>
+              <span className="hide-on-large-only hide-on-small-only">Daniel</span>
             </Link>
             </div>
 
-            <div className="right-align container">
+            <div className="col s8 pull-s4">
 
             {this.props.auth.isAuthenticated === true ? (
             <button
               style={{
-
-                width: "100px",
                 borderRadius: "10px",
                 letterSpacing: "1.5px",
                 
@@ -46,11 +42,10 @@ class Navbar extends Component {
             >
               Logout
             </button>
-            ) : ( <div>
+            ) : ( <div style={{overflow: 'hidden'}}>
                   <Link
                 to="/register"
                 style={{
-                  width: "100px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
@@ -62,7 +57,6 @@ class Navbar extends Component {
               <Link
                 to="/login"
                 style={{
-                  width: "100px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
