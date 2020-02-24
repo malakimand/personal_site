@@ -27,7 +27,7 @@ const NBA = require("./routes/api/nba");
 
 const app = express();
 
-//app.use(cors(corsOptions)) //prod
+app.use(cors(corsOptions)) //prod
 //app.use(cors()) //dev
 
 app.use(express.static('public'))

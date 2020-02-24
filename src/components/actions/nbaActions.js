@@ -8,7 +8,8 @@ import {
 // get all NBA data
 export const getNBAData = () =>  dispatch => {
   axios
-    .get("/api/NBA/stats")
+  .get("http://danielthedeveloper.com:5000/api/NBA/stats")
+    //.get("/api/NBA/stats")
     .then(res => 
       dispatch({
             type: FETCH_NBA_DATA,
@@ -20,7 +21,7 @@ export const getNBAData = () =>  dispatch => {
     );
 };
   
-   //.get("http://danielthedeveloper.com:5000/api/NBA/stats")
+   
 
 
 
